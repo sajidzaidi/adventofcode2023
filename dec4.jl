@@ -7,9 +7,6 @@ using InteractiveUtils
 # ╔═╡ b673cdf2-9666-11ee-39b1-6d94b43b3bda
 using DelimitedFiles
 
-# ╔═╡ 74120d53-88f6-499e-9db6-39a088af6209
-using Counters
-
 # ╔═╡ 281b9c58-3c0a-4247-87bf-17d1c9ca8a27
 open("day4.txt") do f
 	summed_value=0
@@ -27,12 +24,6 @@ open("day4.txt") do f
 	end
 	println(summed_value)
 end
-
-# ╔═╡ ba2ee469-f6c4-4185-b936-315cf292e57a
-# ╠═╡ disabled = true
-#=╠═╡
-import Counters
-  ╠═╡ =#
 
 # ╔═╡ 978c38fb-993c-490b-93d6-164761fe2ad5
 open("day4.txt") do f
@@ -62,6 +53,17 @@ open("day4.txt") do f
 	end
 	answer
 end
+
+# ╔═╡ 74120d53-88f6-499e-9db6-39a088af6209
+#=╠═╡
+using Counters
+  ╠═╡ =#
+
+# ╔═╡ ba2ee469-f6c4-4185-b936-315cf292e57a
+# ╠═╡ disabled = true
+#=╠═╡
+import Counters
+  ╠═╡ =#
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
