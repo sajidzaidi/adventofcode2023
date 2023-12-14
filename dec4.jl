@@ -54,15 +54,15 @@ open("day4.txt") do f
 	answer
 end
 
-# ╔═╡ 74120d53-88f6-499e-9db6-39a088af6209
-#=╠═╡
-using Counters
-  ╠═╡ =#
-
 # ╔═╡ ba2ee469-f6c4-4185-b936-315cf292e57a
 # ╠═╡ disabled = true
 #=╠═╡
 import Counters
+  ╠═╡ =#
+
+# ╔═╡ 74120d53-88f6-499e-9db6-39a088af6209
+#=╠═╡
+using Counters
   ╠═╡ =#
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
