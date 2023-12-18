@@ -62,6 +62,63 @@ sum(100*row_pivots(m) + col_pivots(m) for m in mat)
 # ╔═╡ 7c309b6a-8e2a-4568-a513-1278cebbf56e
 findall( mat[3][1:2] .!= reverse(mat[3][2+1:  2*2]))
 
+# ╔═╡ 06f9bbf2-d3e7-480e-8df0-1f258d5ea3a1
+newmat=reduce(vcat, permutedims.(collect.(mat[3])))
+
+# ╔═╡ 8b3f5ba9-00b0-41d1-aa9f-494596122f17
+length(findall( newmat[1:2,:] .!= reverse(mat[2+1:  2*2,:])))
+
+# ╔═╡ 2ac7a653-03f9-4f6f-8117-3c4c86000c40
+reverse(newmat[1:2,:] ,dims=1)
+
+# ╔═╡ f0dabdb2-89cd-43e2-a411-e7cb41b03cd2
+function row_pivots_smudge(lava)
+	matrix_form=reduce(vcat, permutedims.(collect.(lava)))
+	num_rows=size(matrix_form,1)
+	
+	for pivot in 1:num_rows ÷2
+		
+		if length(findall(matrix_form[1:pivot,:]  .!=  reverse(matrix_form[pivot+1:  pivot*2,:],dims=1)))==1
+			return pivot
+		elseif length(findall(matrix_form[end-pivot+1:end,:] .!= reverse(matrix_form[end - 2*pivot+1:end-pivot ,:],dims=1)))==1
+			return num_rows-pivot
+		
+		end
+	
+	end
+	return 0
+end
+
+# ╔═╡ d3cac56a-00bc-4e6d-b4a0-fccf8eab6df4
+function col_pivots_smudge(lava)
+	matrix_form=reduce(vcat, permutedims.(collect.(lava)))	
+	
+	num_cols=size(matrix_form,2)
+	for pivot in 1:num_cols ÷2
+		
+		if length(findall(matrix_form[:,1:pivot] .!= reverse(matrix_form[:,pivot+1:pivot*2],dims=2)))==1
+			return pivot
+		elseif length(findall(matrix_form[:,end-pivot+1:end] .!=reverse(matrix_form[:,end - 2*pivot+1:end-pivot],dims=2)))==1
+			return num_cols-pivot
+		end
+	
+	end
+	
+	return 0
+end
+
+# ╔═╡ 250817e4-81d4-40e3-b36e-a22a403ca943
+sum(100*row_pivots_smudge(m) + col_pivots_smudge(m) for m in mat)
+
+# ╔═╡ fcb0a6ab-98a7-4ae2-be27-4c871aa69f78
+
+
+# ╔═╡ 6898c7c0-6b16-455a-960b-ebff83543f08
+
+
+# ╔═╡ 0fa229f2-2655-4069-8a06-d113caea9c22
+
+
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
@@ -98,5 +155,14 @@ uuid = "a63ad114-7e13-5084-954f-fe012c677804"
 # ╠═46d8db60-89ea-4b79-8a9e-f3edf7f5e554
 # ╠═f5fa010c-10b7-4bc5-a505-17847cd5c593
 # ╠═7c309b6a-8e2a-4568-a513-1278cebbf56e
+# ╠═06f9bbf2-d3e7-480e-8df0-1f258d5ea3a1
+# ╠═8b3f5ba9-00b0-41d1-aa9f-494596122f17
+# ╠═2ac7a653-03f9-4f6f-8117-3c4c86000c40
+# ╠═f0dabdb2-89cd-43e2-a411-e7cb41b03cd2
+# ╠═d3cac56a-00bc-4e6d-b4a0-fccf8eab6df4
+# ╠═250817e4-81d4-40e3-b36e-a22a403ca943
+# ╠═fcb0a6ab-98a7-4ae2-be27-4c871aa69f78
+# ╠═6898c7c0-6b16-455a-960b-ebff83543f08
+# ╠═0fa229f2-2655-4069-8a06-d113caea9c22
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
