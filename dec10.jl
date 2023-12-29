@@ -37,6 +37,9 @@ function isPipe(point,grid)
 	return grid[point] !='.'
 end
 
+# ╔═╡ 69b32443-f5d2-4b36-8cce-9c3797575345
+
+
 # ╔═╡ 977a5af4-30a3-4dc4-aa7e-c0b9ba62643b
 	validentries=Dict([
 	'|'=>[CartesianIndex(1,0),CartesianIndex(-1,0)],
@@ -384,6 +387,7 @@ uuid = "cf7118a7-6976-5b1a-9a39-7adc72f591a4"
 # ╠═a256917d-6326-41aa-9ac2-ba349c186161
 # ╠═d30942d2-a650-4444-900f-9ad99aa7cf53
 # ╠═868f4427-b880-4e59-84ce-502eb9ed9170
+# ╠═69b32443-f5d2-4b36-8cce-9c3797575345
 # ╠═977a5af4-30a3-4dc4-aa7e-c0b9ba62643b
 # ╠═54a9e542-0223-47f3-99e3-476fd89900ed
 # ╠═6a14cca0-ecad-461b-a9ea-e39842bca05b
